@@ -3,11 +3,12 @@ from AmigoRegular import AmigoRegular
 from AmigoCercano import AmigoCercano
 from ManipuladorTexto import ManipuladorTexto
 from ManipuladorTextoPersonalizado import ManipuladorTextoPersonalizado
-from GestorAmigos import GestorAmigos
+from GestorAmigo import GestorAmigos
+
 
 def mostrar_menu():
     print("\n" + "="*50)
-    print("      SISTEMA DE GESTION DE AMIGOS")
+    print("    SISTEMA DE GESTIÓN DE AMIGOS")
     print("="*50)
     print("1. Agregar Amigo Regular")
     print("2. Agregar Amigo Cercano")
@@ -20,11 +21,13 @@ def mostrar_menu():
     print("9. Salir")
     print("="*50)
 
+
 def obtener_lista(mensaje):
     print(mensaje)
     print("(Ingrese los elementos separados por coma)")
     entrada = input("➤ ")
-
+    
+    # Separar manualmente por comas
     elementos = []
     elemento_actual = ""
     
@@ -35,11 +38,13 @@ def obtener_lista(mensaje):
             elemento_actual = ""
         else:
             elemento_actual = elemento_actual + caracter
-
+    
+    # Agregar el último elemento
     if elemento_actual:
         elementos.append(elemento_actual)
     
     return elementos
+
 
 def agregar_amigo_regular(gestor):
     print("\n--- AGREGAR AMIGO REGULAR ---")
@@ -48,9 +53,10 @@ def agregar_amigo_regular(gestor):
     gustos = obtener_lista("Gustos del amigo:")
     recuerdo = obtener_lista("Recuerdos compartidos:")
     anecdotas = obtener_lista("Anécdotas:")
+    
+    nuevo_amigo = AmigoRegular(nombre, cumpleanos, gustos, recuerdo, anecdotas)
+    gestor.agregarAmigo(nuevo_amigo)
 
-nuevo_amigo = AmigoRegular(nombre, cumpleanos, gustos, recuerdo, anecdotas)
-gestor.agregarAmigo(nuevo_amigo)
 
 def agregar_amigo_cercano(gestor):
     print("\n--- AGREGAR AMIGO CERCANO ---")
@@ -73,6 +79,7 @@ def agregar_amigo_cercano(gestor):
     nuevo_amigo = AmigoCercano(nombre, cumpleanos, gustos, recuerdo, anecdotas, nivelConfianza)
     gestor.agregarAmigo(nuevo_amigo)
 
+
 def buscar_y_mostrar_amigo(gestor):
     nombre = input("\nIngrese el nombre del amigo a buscar: ")
     amigo = gestor.buscarAmigo(nombre)
@@ -94,6 +101,7 @@ def agregar_recuerdo_amigo(gestor):
         print("✓ " + resultado)
     else:
         print("\n✗ No se encontró ningún amigo con el nombre: " + nombre)
+
 
 def cambiar_estilo_notificaciones(gestor):
     print("\n--- CAMBIAR ESTILO DE NOTIFICACIONES ---")
@@ -159,6 +167,7 @@ def main():
             print("\n✗ Opción no válida. Por favor intente de nuevo.")
         
         input("\nPresione Enter para continuar...")
+
 
 if __name__ == "__main__":
     main()

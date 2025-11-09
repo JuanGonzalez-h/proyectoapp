@@ -1,6 +1,6 @@
 class ManipuladorTexto:
 
-    def __init__(self):
+    def _init_(self):
         pass
 
     def manipuladoTexto(self, texto):
