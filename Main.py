@@ -39,7 +39,7 @@ def obtener_lista(mensaje):
         else:
             elemento_actual = elemento_actual + caracter
     
-    # Agregar el último elemento
+   
     if elemento_actual:
         elementos.append(elemento_actual)
     
