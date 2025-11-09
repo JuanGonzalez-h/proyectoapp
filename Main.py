@@ -3,7 +3,7 @@ from AmigoRegular import AmigoRegular
 from AmigoCercano import AmigoCercano
 from ManipuladorTexto import ManipuladorTexto
 from ManipuladorTextoPersonalizado import ManipuladorTextoPersonalizado
-from GestorAmigo import GestorAmigos
+from GestorAmigos import GestorAmigos
 
 
 def mostrar_menu():
